@@ -7,7 +7,7 @@ body {
 #header {
   width: 100%;
   height: 60px;
-  background-color: #4286f4;
+  background-color: #49b25c;
   box-shadow: 0 4px 3px #a8b2c1;
 }
 
@@ -20,7 +20,7 @@ body {
 
 #container {
   padding: 12px;
-  width: 1004px;
+  width: 50%;
   height: 500px;
   margin: 10px auto;
   background-color: white;
@@ -30,8 +30,7 @@ body {
 }
 
 #controls {
-
-  width: 1024px;
+  width: 50%;
   margin: 0px auto;
   background-color: white;
   box-shadow: 4px 4px 2px #a8b2c1;
@@ -39,16 +38,16 @@ body {
 
 #input {
   resize: none;
-  width: 87%;
+  width: 100%;
   float: left;
   height: 32px;
   font-family: cursive;
-  padding: 6px;
+  padding: 4px;
   box-shadow: 4px 4px 2px #a8b2c1;
   border: 0px;
   font-size: 16px;
 }
-
+/* 
 #send {
   background-color: #008CBA;
   border: none;
@@ -60,7 +59,7 @@ body {
   position: absolute;
   float: right;
   box-shadow: 4px 4px 2px #a8b2c1;
-}
+} */
 
 input[type="checkbox"]:after,
 .checkbox-inline input[type="checkbox"]:after {
@@ -88,12 +87,10 @@ input[type="checkbox"] {
   margin: 4px 4px 12px;
 }
 
-.username {
+/* #user {
   color: #008CBA;
-  font-weight: bold;
 }
 
-.bot {
-  color: #49b25c;
-  font-weight: bold;
-}
+#bot {
+  color: orangered;
+} */

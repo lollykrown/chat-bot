@@ -1,0 +1,99 @@
+body {
+  margin: 0px;
+  background-color: #e5e7ea;
+  font-family: arial, sans-serif;
+}
+
+#header {
+  width: 100%;
+  height: 60px;
+  background-color: #4286f4;
+  box-shadow: 0 4px 3px #a8b2c1;
+}
+
+#header>h1 {
+  margin: 0px auto;
+  width: 1024px;
+  color: white;
+  padding: 10px;
+}
+
+#container {
+  padding: 12px;
+  width: 1004px;
+  height: 500px;
+  margin: 10px auto;
+  background-color: white;
+  box-shadow: 4px 4px 2px #a8b2c1;
+  position: relative;
+  overflow: scroll;
+}
+
+#controls {
+
+  width: 1024px;
+  margin: 0px auto;
+  background-color: white;
+  box-shadow: 4px 4px 2px #a8b2c1;
+}
+
+#input {
+  resize: none;
+  width: 87%;
+  float: left;
+  height: 32px;
+  font-family: cursive;
+  padding: 6px;
+  box-shadow: 4px 4px 2px #a8b2c1;
+  border: 0px;
+  font-size: 16px;
+}
+
+#send {
+  background-color: #008CBA;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  font-size: 13px;
+  margin: 0px 12px;
+  position: absolute;
+  float: right;
+  box-shadow: 4px 4px 2px #a8b2c1;
+}
+
+input[type="checkbox"]:after,
+.checkbox-inline input[type="checkbox"]:after {
+  border: 1px solid;
+  border-radius: 1px;
+  content: '';
+  display: block;
+  height: 12px;
+  transition: 240ms;
+  width: 12px;
+  background-color: white;
+  border-color: #008CBA
+}
+
+input[type="checkbox"]:checked:after {
+  background-color: #008CBA;
+  border-color: #008CBA;
+}
+
+label,
+input[type="checkbox"] {
+  cursor: pointer;
+  font-family: arial, sans-serif;
+  font-size: 15px;
+  margin: 4px 4px 12px;
+}
+
+.username {
+  color: #008CBA;
+  font-weight: bold;
+}
+
+.bot {
+  color: #49b25c;
+  font-weight: bold;
+}

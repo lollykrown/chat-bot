@@ -13,15 +13,15 @@ body {
 
 #header>h1 {
   margin: 0px auto;
-  width: 1024px;
+  width: 100%;
   color: white;
   padding: 10px;
 }
 
 #container {
   padding: 12px;
-  width: 50%;
-  height: 500px;
+  width: 100%;
+  height: 65vh;
   margin: 10px auto;
   background-color: white;
   box-shadow: 4px 4px 2px #a8b2c1;
@@ -30,7 +30,7 @@ body {
 }
 
 #controls {
-  width: 50%;
+  width: 100%;
   margin: 0px auto;
   background-color: white;
   box-shadow: 4px 4px 2px #a8b2c1;

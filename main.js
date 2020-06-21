@@ -66,7 +66,7 @@ const bye = ["Thank you for using lollykrown's Bot"];
 
 document.addEventListener("DOMContentLoaded", () => {
 	const inputField = document.getElementById("input")
-	inputField.addEventListener("keydown", function(e) {
+	inputField.addEventListener("keyup", function(e) {
 		if (e.code === "Enter" || e.code === 13) {
       let input = inputField.value;
       console.log(input)

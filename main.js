@@ -1,7 +1,7 @@
 const printObj = (obj) => {
   let string = '';
   for (let x in obj) {
-    string += `<br> <strong>${x}</strong>: ${obj[x]}`;
+    string += `<br>${x}: <strong>${obj[x]}</strong>`;
     console.log(x, obj[x])
   }
   return string;

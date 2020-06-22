@@ -1,26 +1,14 @@
-// let nigeria = {};
-// (async function(){
-//   fetch('https://covidnigeria.herokuapp.com/api')
-// .then(response => {
-//   if (response.ok) { 
-//     return response.json(); 
-//   } else {
-//     alert("HTTP-Error: " + response.status);
-//   }
-// })
-// .then(res => {
-//   console.log(res.data)
-//   nigeria.deaths = res.data.death;
-//   nigeria.discharged = res.data.discharged;
-//   nigeria.totalActiveCases = res.data.totalActiveCases;
-//   nigeria.totalConfirmedCases = res.data.totalConfirmedCases;
-//   nigeria.totalSamplesTested = res.data.totalSamplesTested;
-// })
-// .catch(err => {
-//   console.log(err)
-// })
-// }());
-
+const printObj = (obj) => {
+  let string = '';
+  for (let x in obj) {
+    string += `<br> <strong>${x}</strong>: ${obj[x]}`;
+    console.log(x, obj[x])
+  }
+  return string;
+}
+const addCommas = (num) => {
+  return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
 // These are words/phrases the user could type in
 const trigger = [
   ["hi", "hey", "hello", "good morning", "good afternoon", "good evening", "what\'s up"],
@@ -28,30 +16,56 @@ const trigger = [
   ["1", "2", "3", "4", "5", "6"]
 ];
 // These are bot responses, paired in order with the above 'trigger' phrases
-const reply = [
-  [
-    "Hello! Please reply with \'help\'", 
-    "Hi! Please reply with \'help\'", 
-    "Hey! Please reply with \'help\'", 
-    "Hi there! Please reply with \'help\'",
-    "Good Afternoon! Please reply with \'help\'"
-  ],
-  [`<br>
-    press \'1\' for tips on how to prevent coronavirus <br>
-    press \'2\' for coronavirus symptoms. <br>
-    press \'3\' to get the full meaning of NCDC. <br>
-    press \'4\' to get the date the first case of coronavirus was confirmed in Nigeria. <br>
-    press \'5\' to get the name of the country where the SARS-COV-2 originated from. <br>`
-  ],
-  [
-    `Wash your hands frequently with soap and water or sanitizer for at least 20 minutes. 
-    Wear face mask if you are going to a public place and observe social distance`,
-    "Fever, chest pain, loss of sense of smell, sore throat, cough, shortness of breath",
-    "Nigeria Center for Disease Control and Prevention",
-    "The first coronavirus case was confirmed in Nigeria on the 28th of January 2020",
-    "SARS-COV-2 which causes COVID-19 originated in Wuhan, China"
-  ]
-];
+let reply = [];
+//  const gett = ()=>{
+fetch('https://covidnigeria.herokuapp.com/api')
+  .then(response => {
+    if (response.ok) {
+      return response.json();
+    } else {
+      alert("HTTP-Error: " + response.status);
+    }
+  })
+  .then(res => nigeria = res.data)
+  .then(data => {
+    console.log(data);
+    let va = {};
+    va.deaths = data.death;
+    va.discharged = addCommas(data.discharged);
+    va.total_active_cases = addCommas(data.totalActiveCases);
+    va.total_confirmed_cases = addCommas(data.totalConfirmedCases);
+    va.total_samples_tested = addCommas(data.totalSamplesTested);
+    console.log(va.deaths.toString().length);
+    const stats = printObj(va)
+    reply = [
+      [
+        "Hello! Please reply with \'help\'",
+        "Hi! Please reply with \'help\'",
+        "Hey! Please reply with \'help\'",
+        "Hi there! Please reply with \'help\'",
+        "Good Afternoon! Please reply with \'help\'"
+      ],
+      [`<br>
+      press <strong>\'1\'</strong> for tips on how to prevent coronavirus <br>
+      press <strong>\'2\'</strong> for latest updates of covid19 in Nigeria. <br>
+      press <strong>\'3\'</strong> for coronavirus symptoms. <br>
+      press <strong>\'4\'</strong> to get the full meaning of NCDC. <br>
+      press <strong>\'5\'</strong> to get the date the first case of coronavirus was confirmed in Nigeria. <br>`
+      ],
+      [
+        `Wash your hands frequently with soap and water or sanitizer for at least 20 minutes. 
+      Wear face mask if you are going to a public place and observe social distance`,
+        stats,
+        "Fever, chest pain, loss of sense of smell, sore throat, cough, shortness of breath",
+        "Nigeria Center for Disease Control and Prevention",
+        "The first coronavirus case was confirmed in Nigeria on the 28th of January 2020",
+      ]
+    ];
+  })
+  .catch(err => {
+    console.log(err)
+  })
+// }
 
 // This is a small set of basically random 'catch alls' for anything that the user enters outside of the possible trigger phrases
 const alternative = [
@@ -65,14 +79,17 @@ const bye = ["Thank you for using lollykrown's Bot"];
 
 
 document.addEventListener("DOMContentLoaded", () => {
-	const inputField = document.getElementById("input")
-	inputField.addEventListener("keyup", function(e) {
-		if (e.code === "Enter" || e.code === 13) {
+  const inputField = document.getElementById("input")
+  inputField.addEventListener("keyup", function (e) {
+    if (e.code === "Enter" || e.code == 13) {
+      // document.getElementById("send").addEventListener("submit", function (e) {
+      //   e.preventDefault();
       let input = inputField.value;
       console.log(input)
-			inputField.value = "";
-			output(input);
+      inputField.value = "";
+      output(input);
     }
+    // }
   });
 });
 
@@ -87,7 +104,7 @@ function output(input) {
   } else if (text.match(/covid/gi)) {
     product = covid[Math.floor(Math.random() * covid.length)];
   } else if (text.match(/bye/gi)) {
-  product = bye[Math.floor(Math.random() * bye.length)];
+    product = bye[Math.floor(Math.random() * bye.length)];
   } else {
     product = alternative[Math.floor(Math.random() * alternative.length)];
   }
@@ -99,14 +116,11 @@ function output(input) {
 function compare(triggerArray, replyArray, string) {
   let item;
   for (let x = 0; x < triggerArray.length; x++) {
-    for (let y = 0; y <= replyArray.length +1; y++) {
+    for (let y = 0; y <= replyArray.length + 1; y++) {
       if (triggerArray[x][y] === string) {
         // items = replyArray[x];
         //item = items[Math.floor(Math.random() * items.length)];
-        console.log(x,y)
-        console.log(triggerArray[x][y], replyArray[x][y])
         item = replyArray[x][y];
-
       }
     }
   }

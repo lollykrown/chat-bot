@@ -11,7 +11,7 @@ const addCommas = (num) => {
 }
 // These are words/phrases the user could type in
 const trigger = [
-  ["hi", "hey", "hello", "good morning", "good afternoon", "good evening", "what\'s up"],
+  ["hi", "hey", "hello", "good day", "what\'s up"],
   ["help", "covid19", "info"],
   ["1", "2", "3", "4", "5", "6"]
 ];

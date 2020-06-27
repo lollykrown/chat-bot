@@ -77,14 +77,14 @@ const coronavirus = ["Please stay home or wear face mask if you must go out and 
 const covid = ["Please stay home or wear face mask if you must go out maintain social distance"];
 const bye = ["Thank you for using lollykrown's Bot"];
 
-const submit = document.getElementById("send");
 document.addEventListener("DOMContentLoaded", () => {
   const inputField = document.getElementById("input");
   inputField.addEventListener("keyup", function (e) {
+    const submit = document.getElementById("send");
 
-    if (e.code === 'Enter' || e.code === 13) {
-      document.getElementById("send").addEventListener("click", function (el) {
-        el.preventDefault();
+    if (e.code === 13 || e.code === 'Enter') {
+      document.getElementById("send").addEventListener("click", function (e) {
+        e.preventDefault();
 
         let input = inputField.value;
         console.log(input)

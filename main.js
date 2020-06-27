@@ -83,7 +83,6 @@ document.addEventListener("DOMContentLoaded", () => {
   inputField.addEventListener("keyup", function (e) {
 
     if (e.code === 'Enter' || e.code === 13) {
-      // submit.addEventListener("click", function (el) {
       document.getElementById("send").addEventListener("click", function (el) {
         el.preventDefault();
 
@@ -93,7 +92,6 @@ document.addEventListener("DOMContentLoaded", () => {
         output(input);
       })
     }
-    // }
   });
 });
 

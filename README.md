@@ -3,3 +3,6 @@
 <br>
  The hosted link is <a href="https://chat-bot-hng.netlify.app" target="_blank">https://chat-bot-hng.netlify.app</a><br>
  Using this <a href="https://covidnigeria.herokuapp.com/api">api</a> to get recent covid-19 updates in Nigeria
+<br>
+
+Caveat is that it is not responsive on mobile. I may have to dust my rusty fronted skills to fix that.

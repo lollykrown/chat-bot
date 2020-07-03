@@ -83,14 +83,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const submit = document.getElementById("send");
 
     if (e.code === 13 || e.code === 'Enter') {
-      document.getElementById("send").addEventListener("click", function (e) {
-        e.preventDefault();
+      // document.getElementById("send").addEventListener("click", function (e) {
+      //   e.preventDefault();
 
         let input = inputField.value;
         console.log(input)
         inputField.value = "";
         output(input);
-      })
+      // })
     }
   });
 });
